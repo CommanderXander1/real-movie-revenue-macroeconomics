@@ -54,11 +54,13 @@ def getTopMoviesDict(cpi_dict, movie_dict) -> dict:
         real_value_dict[d[0]] = d[1]
     return real_value_dict    # year 1 price * year 2 cpi/year 1 cpi
 
+
 def top_movies(pages=1, display=25):
     movieDictList = [getMovieDict(i) for i in range(0, pages)]
     top = list(getTopMoviesDict(getCpiDict(), movieDictList).items())[0:display]
     for i in range(0, len(top)):
         print(f"{i + 1}. {top[i][0]}: ${int(top[i][1]):,}")
+
 
 if __name__ == '__main__':
     top_movies(pages=10, display=30)
