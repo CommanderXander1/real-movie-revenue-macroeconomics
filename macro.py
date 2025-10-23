@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup as bs
 import requests
 
 
-def getCpiDict():
+def getCpiDict() -> dict:
     CPI_LINK = "https://www.minneapolisfed.org/about-us/monetary-policy/inflation-calculator/consumer-price-index-1913-"
     CPI = requests.get(CPI_LINK).text
     pCPI = bs(CPI, 'html.parser')
@@ -56,7 +56,7 @@ def getTopMoviesDict(cpi_dict, movie_dict) -> dict:
     return real_value_dict    # year 1 price * year 2 cpi/year 1 cpi
 
 
-def top_movies(pages=1, display=25):
+def top_movies(pages=1, display=25) -> None:
     movieDictList = [getMovieDict(i) for i in range(0, pages)]
     top = list(getTopMoviesDict(getCpiDict(), movieDictList).items())[0:display]
     for i in range(0, len(top)):
