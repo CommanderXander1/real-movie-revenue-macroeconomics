@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup as bs
 import requests
 
+
 def getCpiDict():
     CPI_LINK = "https://www.minneapolisfed.org/about-us/monetary-policy/inflation-calculator/consumer-price-index-1913-"
     CPI = requests.get(CPI_LINK).text
