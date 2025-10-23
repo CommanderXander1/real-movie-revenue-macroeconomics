@@ -33,7 +33,6 @@ def getMovieDict(offset=0) -> dict:
     for d in table.find_all('td'):
         movieDataList.append(d.text.replace('\xa0', ''))
 
-
     for i in range(1, len(movieDataList), 4):
         movieByName[movieDataList[i]] = [movieDataList[i + 2], movieDataList[i + 1]]
 
